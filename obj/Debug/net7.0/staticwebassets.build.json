@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "OG3tiSWk498etxZLsPcOOq9gqZmXU6xpp+fixBzS9IA=",
+  "Source": "APIBackSpotify",
+  "BasePath": "_content/APIBackSpotify",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

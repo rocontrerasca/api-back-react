@@ -1,5 +1,8 @@
 ﻿namespace APIBackSpotify.Models
 {
+    /// <summary>
+    /// Respuesta para la busqueda realizada
+    /// </summary>
     public class SearchResponse
     {
         public List<ItemType>? Albums { get; set; }

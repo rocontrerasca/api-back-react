@@ -14,7 +14,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace APIBackSpotify.Controllers
 {
     /// <summary>
-    /// API que consulta el token de Spotify
+    /// API que consulta las recomendaciones por usuario
     /// </summary>
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
@@ -29,13 +29,13 @@ namespace APIBackSpotify.Controllers
         }
 
        /// <summary>
-       /// 
+       /// Consultar recomendaciones para el usuario en sesión
        /// </summary>
-       /// <param name="authorization"></param>
-       /// <param name="limit"></param>
-       /// <param name="seedArtists"></param>
-       /// <param name="market"></param>
-       /// <returns></returns>
+       /// <param name="authorization">Token usuario</param>
+       /// <param name="limit">Cantdad de registros a obtener</param>
+       /// <param name="seedArtists">Id artistas como base de busqueda</param>
+       /// <param name="market">Codigo pais para limitar busqueda</param>
+       /// <returns>Listado de canciones recomendadas</returns>
         [HttpGet]
         public async Task<ActionResult> Get([FromHeader] string authorization, [FromQuery] string limit, [FromQuery] string seedArtists,
             [FromQuery] string market)

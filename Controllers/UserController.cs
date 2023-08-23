@@ -14,7 +14,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace APIBackSpotify.Controllers
 {
     /// <summary>
-    /// API que consulta el token de Spotify
+    /// API que consulta perfil de usuario y elementos asociados a un usuario
     /// </summary>
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]

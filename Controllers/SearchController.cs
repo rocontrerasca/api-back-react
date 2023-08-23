@@ -14,7 +14,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace APIBackSpotify.Controllers
 {
     /// <summary>
-    /// API que consulta el token de Spotify
+    /// API que consulta coincidencias con elementos tipo canciones, albumes, artistas
     /// </summary>
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
@@ -29,14 +29,14 @@ namespace APIBackSpotify.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Buscar canciones, artistas, almbues, playlist por palabras especificas
         /// </summary>
-        /// <param name="authorization"></param>
-        /// <param name="limit"></param>
-        /// <param name="q"></param>
-        /// <param name="type"></param>
-        /// <param name="market"></param>
-        /// <returns></returns>
+        /// <param name="authorization">Token usuario</param>
+        /// <param name="limit">Cantidad de registros a traer</param>
+        /// <param name="q">Cadena de busqueda</param>
+        /// <param name="type">Typo de elementos a buscar</param>
+        /// <param name="market">Codigo de pais</param>
+        /// <returns>Objeto con los resultados que coinciden para canciones, artitas, almbumes, playlist</returns>
         [HttpGet]
         public async Task<ActionResult> GetTopArtist([FromHeader] string authorization, [FromQuery] string limit, [FromQuery] string q,
             [FromQuery] string type, [FromQuery] string market)

@@ -35,7 +35,7 @@ namespace APIBackSpotify.Controllers
         /// <param name="limit">Cantidad de datos</param>
         /// <returns>Httpcode con datos de artista</returns>
         [HttpGet("top/artists")]
-        public async Task<ActionResult> GetTopArtist([FromHeader] string authorization, [FromQuery] string limit)
+        public async Task<ActionResult> GetTopArtist([FromHeader] string authorization, [FromQuery] int limit)
         {
             dynamic responseE = new JObject();
             List<object> dataList = new();
@@ -46,6 +46,7 @@ namespace APIBackSpotify.Controllers
                     throw new UnauthorizedAccessException("No autorizado");
 
                 var httpClient = _httpClientFactory.CreateClient("api_spotify");
+                httpClient.BaseAddress = new Uri(Environment.GetEnvironmentVariable("URL_SPOTIFY"));
                 httpClient.DefaultRequestHeaders.Accept.Clear();
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -103,7 +104,7 @@ namespace APIBackSpotify.Controllers
         /// <param name="limit">Cantidad de datos</param>
         /// <returns>Httpcode con datos de canciones</returns>
         [HttpGet("player/recently-played")]
-        public async Task<ActionResult> GetRecentlyPlayer([FromHeader] string authorization, [FromQuery] string limit)
+        public async Task<ActionResult> GetRecentlyPlayer([FromHeader] string authorization, [FromQuery] int limit)
         {
             dynamic responseE = new JObject();
             List<object> dataList = new();
@@ -114,6 +115,7 @@ namespace APIBackSpotify.Controllers
                     throw new UnauthorizedAccessException("No autorizado");
 
                 var httpClient = _httpClientFactory.CreateClient("api_spotify");
+                httpClient.BaseAddress = new Uri(Environment.GetEnvironmentVariable("URL_SPOTIFY"));
                 httpClient.DefaultRequestHeaders.Accept.Clear();
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -171,7 +173,7 @@ namespace APIBackSpotify.Controllers
         /// <param name="limit">Cantidad de datos</param>
         /// <returns>Httpcode con datos de canciones</returns>
         [HttpGet("top/tracks")]
-        public async Task<ActionResult> GetTopTracks([FromHeader] string authorization, [FromQuery] string limit)
+        public async Task<ActionResult> GetTopTracks([FromHeader] string authorization, [FromQuery] int limit)
         {
             dynamic responseE = new JObject();
             List<object> dataList = new();
@@ -182,6 +184,7 @@ namespace APIBackSpotify.Controllers
                     throw new UnauthorizedAccessException("No autorizado");
 
                 var httpClient = _httpClientFactory.CreateClient("api_spotify");
+                httpClient.BaseAddress = new Uri(Environment.GetEnvironmentVariable("URL_SPOTIFY"));
                 httpClient.DefaultRequestHeaders.Accept.Clear();
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -252,6 +255,7 @@ namespace APIBackSpotify.Controllers
                     throw new UnauthorizedAccessException("No autorizado");
 
                 var httpClient = _httpClientFactory.CreateClient("api_spotify");
+                httpClient.BaseAddress = new Uri(Environment.GetEnvironmentVariable("URL_SPOTIFY"));
                 httpClient.DefaultRequestHeaders.Accept.Clear();
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
